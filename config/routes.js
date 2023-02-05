@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const homeController = require("../controllers/homeController");
 const cubeController = require("../controllers/cubeController");
+const accessoryController = require("../controllers/accessoryController");
 
 router.get("/", homeController.getHomeView)
 router.get("/about", homeController.getAboutView)
@@ -19,5 +20,7 @@ router.post("/cubes/:cubeId/delete", cubeController.postDeleteCube)
 
 router.get("/404", homeController.get404View)
 
+router.get("/accessories/add-accessory", accessoryController.getAddAccessoryView)
+router.post("/accessories/add-accessory", accessoryController.postCreateAccessory)
 
 module.exports = router
