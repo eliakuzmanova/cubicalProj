@@ -7,10 +7,15 @@ router.get("/", homeController.getHomeView)
 router.get("/about", homeController.getAboutView)
 
 router.get("/cubes/:cubeId/details", cubeController.getDetails)
+
 router.get("/cubes/:cubeId/edit", cubeController.getEditView)
 router.post("/cubes/:cubeId/edit", cubeController.postEditCube)
+
 router.get("/cubes/add-cube", cubeController.getAddCude)
 router.post("/cubes/add-cube", cubeController.postAddCube)
+
+router.get("/cubes/:cubeId/delete", cubeController.getDeleteView)
+router.post("/cubes/:cubeId/delete", cubeController.postDeleteCube)
 
 
 module.exports = router

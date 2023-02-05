@@ -31,3 +31,16 @@ exports.postEditCube = async (req, res) => {
     res.redirect(`/cubes/${cubeId}/details`)
 
 }
+
+exports.getDeleteView = async (req, res) => {
+    const cube = await cubeService.getOneCube(req.params.cubeId)
+    const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel)
+    res.render("cube/delete", {cube, difficultyLevels})
+}
+
+exports.postDeleteCube = async (req, res) => {
+    const cubeId = req.params.cubeId
+    await cubeService.deleteCube(cubeId)
+    res.redirect("/")
+
+}
