@@ -1,5 +1,7 @@
-// TODO: Require Controllers...
+const router = require("express").Router();
 
-module.exports = (app) => {
-    // TODO...
-};
+
+//add the Controllers
+
+
+module.exports = router
