@@ -4,7 +4,7 @@ const homeController = require("../controllers/homeController");
 const cubeController = require("../controllers/cubeController");
 
 router.get("/", homeController.getHomeView)
-
+router.get("/about", homeController.getAboutView)
 router.get("/:cubeId/details", cubeController.getDetails)
 
 
