@@ -1,3 +1,5 @@
 const Cube = require("../models/Cube");
 
-exports.getCubes = async() => await Cube.find().lean()
+exports.getAllCubes = async() => await Cube.find().lean()
+
+exports.getOneCube = async(cubeId) => await Cube.findById(cubeId).lean()
