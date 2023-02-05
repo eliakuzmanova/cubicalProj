@@ -17,5 +17,7 @@ router.post("/cubes/add-cube", cubeController.postAddCube)
 router.get("/cubes/:cubeId/delete", cubeController.getDeleteView)
 router.post("/cubes/:cubeId/delete", cubeController.postDeleteCube)
 
+router.get("/404", homeController.get404View)
+
 
 module.exports = router

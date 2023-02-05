@@ -11,3 +11,7 @@ exports.getHomeView = async (req,res) => {
 exports.getAboutView = (req,res) => {
     res.render("about");
 }
+
+exports.get404View = (req,res) => {
+    res.render("404");
+}
