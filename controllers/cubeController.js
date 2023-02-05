@@ -1,5 +1,5 @@
 //add it to routes
-
+const cubeUtils = require("../utils/cubeUtils");
 const cubeService = require("../services/cubesService");
 
 exports.getDetails = async (req,res) => {
@@ -16,3 +16,18 @@ exports.postAddCube = async (req,res) => {
     await cubeService.createCube(name, description, imageUrl, difficultyLevel)
     res.redirect("/")
 };
+
+exports.getEditView = async (req, res) => {
+    const cube = await cubeService.getOneCube(req.params.cubeId)
+    const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel)
+    res.render("cube/edit", {cube, difficultyLevels})
+
+};
+
+exports.postEditCube = async (req, res) => {
+    const cubeId = req.params.cubeId
+    const {name, description, imageUrl, difficultyLevel} = req.body;
+    await cubeService.editCube(name, description, imageUrl, difficultyLevel, cubeId)
+    res.redirect(`/cubes/${cubeId}/details`)
+
+}
