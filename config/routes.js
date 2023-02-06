@@ -23,4 +23,7 @@ router.get("/404", homeController.get404View)
 router.get("/accessories/add-accessory", accessoryController.getAddAccessoryView)
 router.post("/accessories/add-accessory", accessoryController.postCreateAccessory)
 
+router.get("/cubes/:cubeId/attach", accessoryController.getAttachAccessoryView)
+router.post("/cubes/:cubeId/attach", accessoryController.postAttachAccessory)
+
 module.exports = router
