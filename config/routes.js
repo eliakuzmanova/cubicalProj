@@ -5,6 +5,8 @@ const cubeController = require("../controllers/cubeController");
 const accessoryController = require("../controllers/accessoryController");
 
 router.get("/", homeController.getHomeView)
+router.post("/", homeController.postSearchEngine)
+
 router.get("/about", homeController.getAboutView)
 
 router.get("/cubes/:cubeId/details", cubeController.getDetails)

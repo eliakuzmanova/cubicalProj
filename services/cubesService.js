@@ -1,5 +1,11 @@
 const Cube = require("../models/Cube");
 
+// exports.searchByWordCubes = async (word) => await Cube.find({ $strcasecmp: [Cube.name, word]}).lean();
+
+exports.searchByDiffFromCubes = async (diffFrom) => await Cube.find({difficultyLevel: {$lte: diffFrom}}).lean();
+
+exports.searchByDiffToCubes = async (diffTo) => await Cube.find({difficultyLevel: {$gte: diffTo}}).lean();
+
 exports.getAllCubes = async() => await Cube.find().lean()
 
 exports.getOneCube = async(cubeId) => await Cube.findById(cubeId).populate("accessories").lean()
