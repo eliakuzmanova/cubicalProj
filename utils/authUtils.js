@@ -17,3 +17,11 @@ exports.isAuthenticated = (token, res) => {
     return decodedToken = jwt.verify(token, secret)
 
 }
+
+exports.authMiddleware = (req, res, next) => {
+    if(!req.isAuthenticated) {
+        res.redirect("/404")
+    }
+
+    next()
+}
