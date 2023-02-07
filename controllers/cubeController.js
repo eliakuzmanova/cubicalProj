@@ -14,7 +14,8 @@ exports.getAddCude = (req,res) => {
 
 exports.postAddCube = async (req,res) => {
     const {name, description, imageUrl, difficultyLevel} = req.body;
-    await cubeService.createCube(name, description, imageUrl, difficultyLevel)
+
+    await cubeService.createCube(name, description, imageUrl, difficultyLevel, req.cookies[userId])
     res.redirect("/")
 };
 
@@ -28,7 +29,7 @@ exports.getEditView = async (req, res) => {
 exports.postEditCube = async (req, res) => {
     const cubeId = req.params.cubeId
     const {name, description, imageUrl, difficultyLevel} = req.body;
-    await cubeService.editCube(name, description, imageUrl, difficultyLevel, cubeId)
+    await cubeService.editCube(name, description, imageUrl, difficultyLevel, cubeId, req.cookies[userId])
     res.redirect(`/cubes/${cubeId}/details`)
 
 }

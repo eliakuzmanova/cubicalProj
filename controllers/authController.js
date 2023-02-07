@@ -46,7 +46,7 @@ exports.postLogin = async (req, res) => {
     res.render("404")
   }
 
-  const payload = {username};
+  const payload = {username, userId: user._id};
   const options = {expiresIn: "2h"};
 
   const token  = authUtils.token(payload, options);
@@ -55,6 +55,7 @@ exports.postLogin = async (req, res) => {
 }
 
 
-// exports.getLogout = (req, res) => {
-
-// }
+exports.getLogout = (req, res) => {
+    res.clearCookie("auth");
+    res.redirect("/")
+}

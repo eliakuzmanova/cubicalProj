@@ -36,6 +36,6 @@ router.post("/auth/register", authController.postRegister)
 router.get("/auth/login", authController.getLoginView)
 router.post("/auth/login", authController.postLogin)
 
-// router.get("/auth/logout",authMiddleware, authController.getLogout)
+router.get("/auth/logout",authMiddleware, authController.getLogout)
 
 module.exports = router

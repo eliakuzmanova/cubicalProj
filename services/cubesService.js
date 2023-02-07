@@ -12,8 +12,8 @@ exports.getOneCube = async(cubeId) => await Cube.findById(cubeId).populate("acce
 
 exports.getOneCubeWithAccessories = async(cubeId) => await Cube.findById(cubeId)
 
-exports.createCube = async(name, description, imageUrl, difficultyLevel) => await Cube.create({name, description, imageUrl, difficultyLevel})
+exports.createCube = async(name, description, imageUrl, difficultyLevel, userId) => await Cube.create({name, description, imageUrl, difficultyLevel, userId})
 
-exports.editCube = async(name, description, imageUrl, difficultyLevel, cubeId) => await Cube.findByIdAndUpdate(cubeId, {name, description, imageUrl, difficultyLevel})
+exports.editCube = async(name, description, imageUrl, difficultyLevel, cubeId, userId) => await Cube.findByIdAndUpdate(cubeId, {name, description, imageUrl, difficultyLevel, userId})
 
 exports.deleteCube = async(cubeId) => await Cube.deleteOne({_id: cubeId})
