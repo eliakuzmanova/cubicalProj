@@ -30,9 +30,11 @@ router.get("/cubes/:cubeId/attach", accessoryController.getAttachAccessoryView)
 router.post("/cubes/:cubeId/attach", accessoryController.postAttachAccessory)
 
 router.get("/auth/register", authController.getRegisterView)
-// router.post("/auth/register", authController.postRegister)
+router.post("/auth/register", authController.postRegister)
 
 router.get("/auth/login", authController.getLoginView)
 // router.post("/auth/login", authController.postLogin)
+
+// router.get("/auth/logout", authController.getLogout)
 
 module.exports = router
