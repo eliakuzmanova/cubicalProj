@@ -1,7 +1,7 @@
 //add it to routes
 const cubeUtils = require("../utils/cubeUtils");
 const cubeService = require("../services/cubesService");
-
+const authUtils = require("../utils/authUtils");
 
 exports.getDetails = async (req,res) => {
     const cube = await cubeService.getOneCube(req.params.cubeId)

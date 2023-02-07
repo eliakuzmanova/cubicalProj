@@ -5,12 +5,14 @@ const config = require("./config");
 
 const setUpViewEngine = require("./viewEngine");
 const initDatabase = require("./database");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 setUpViewEngine(app);
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: "false"}));
+app.use(cookieParser())
 app.use(routes);
 
 initDatabase()

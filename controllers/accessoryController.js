@@ -1,6 +1,7 @@
 const Accessory = require("../models/Accessory");
 const accessoryService = require("../services/accessoryService")
 const cubeService = require("../services/cubesService");
+const authUtils = require("../utils/authUtils");
 
 exports.getAddAccessoryView = async (req, res) => {
 

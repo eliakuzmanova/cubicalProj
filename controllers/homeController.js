@@ -1,9 +1,10 @@
 
 const cubeService = require("../services/cubesService");
+const authUtils = require("../utils/authUtils");
 
 exports.getHomeView = async (req,res) => {
-
-    const cubes = await cubeService.getAllCubes()
+        req.locals = authUtils.isAuthenticated
+        const cubes = await cubeService.getAllCubes()
 
     res.render("home", {cubes});
 }
